@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace intra_models
 {
@@ -114,4 +115,4 @@ namespace intra_models
 
     }
 }
-}
+

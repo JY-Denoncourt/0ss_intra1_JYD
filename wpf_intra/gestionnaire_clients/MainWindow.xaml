@@ -6,19 +6,15 @@
         xmlns:local="clr-namespace:gestionnaire_clients"
         mc:Ignorable="d"
         Title="Gestion de clients" Height="450" Width="800"
-        xmlns:other="clr-namespace:wpf_models;assembly=intra_models"
+        xmlns:other="clr-namespace:intra_models;assembly=intra_models"
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Fichier">
                 <MenuItem Header="New">
-                    <MenuItem Header="Produit" Click="NewProduit_Click"/>
+                    <MenuItem Header="Produit" Click="NewClient_Click"/>
                 </MenuItem>
-                <MenuItem Header="Suprimer">
-                    <MenuItem Header="Del Produit" Click="DelProduit_Click"/>
-                </MenuItem>
-
             </MenuItem>
             <MenuItem Header="Edition" />
             <MenuItem Header="Affichage" />
@@ -28,7 +24,7 @@
         <StatusBar DockPanel.Dock="Bottom">
             <StackPanel Orientation="Horizontal">
                 <Label>Client selectionne :</Label>
-                <TextBlock Text="{Binding CurrentProduit.Info}"/>
+                <TextBlock Text="{Binding CurrentClient.Info}"/>
             </StackPanel>
         </StatusBar>
 
@@ -48,19 +44,17 @@
                     <TextBlock  Text="Listes des Client"/>
                     <Button Margin="10,0,0,0" Height="20" Width="90" 
                             VerticalAlignment="Top" Content="Nouveau client"
-                            Click="NewProduit_Click"/>
+                            Click="NewClient_Click"/>
                 </StackPanel>
 
-                
-                <ListView Grid.Row="1" ItemsSource="{Binding OC_produit1}" SelectedItem="{Binding CurrentProduit}"
+
+                <ListView Grid.Row="1" ItemsSource="{Binding OC_Client1}" SelectedItem="{Binding CurrentClient}"
                           SelectionChanged="ListView_SelectionChanged">
-                    <!--
                     <ListView.ItemTemplate>
                         <DataTemplate DataType="{x:Type other:Customer}">
                             <TextBlock Text="{Binding Info}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                    -->
                 </ListView>
             </Grid>
 
@@ -85,12 +79,12 @@
                 <!-- ******************* Nom / prenom *************************************  -->
                 <Label Grid.Row="0" Grid.Column="0"
                         Content="Prenom : " VerticalAlignment="Center"/>
-                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding CurrentProduit.UPC}"
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding CurrentClient.Name}"
                             VerticalAlignment="Center" Margin="6"/>
 
                 <Label Grid.Row="0" Grid.Column="2"
                         Content="Nom : " VerticalAlignment="Center"/>
-                <TextBox Grid.Row="0" Grid.Column="3" Text="{Binding CurrentProduit.UPC}"
+                <TextBox Grid.Row="0" Grid.Column="3" Text="{Binding CurrentClient.LastName}"
                             VerticalAlignment="Center" Margin="6"/>
 
                 
@@ -98,19 +92,19 @@
                 <!-- ******************* Adresse *************************************  -->
                 <Label Grid.Row="1" Grid.Column="0"
                         Content="Adresse : " VerticalAlignment="Center"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding CurrentProduit.Code}"
+                <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding CurrentClient.Address}"
                             VerticalAlignment="Center" Margin="6"/>
 
 
                 <!-- ******************* Ville / province *************************************  -->
                 <Label Grid.Row="2" Grid.Column="0"
                         Content="Ville : " VerticalAlignment="Center"/>
-                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding CurrentProduit.ShortDescription}"
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding CurrentClient.City}"
                             VerticalAlignment="Center" Margin="6"/>
 
                 <Label Grid.Row="2" Grid.Column="2"
                         Content="Province : " VerticalAlignment="Center"/>
-                <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding CurrentProduit.ShortDescription}"
+                <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding CurrentClient.Province}"
                          VerticalAlignment="Center" HorizontalAlignment="Left"
                          Margin="6" Width="40"/>
 
@@ -118,7 +112,7 @@
                 <!-- ******************* Code postale *************************************  -->
                 <Label Grid.Row="3" Grid.Column="0"
                         Content="Code postal : " VerticalAlignment="Center"/>
-                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding CurrentProduit.Description}"
+                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding CurrentClient.PostalCode}"
                             VerticalAlignment="Center" Margin="6"/>
 
 
@@ -126,7 +120,7 @@
                 <!-- ******************* Contact *************************************  -->
                 <Label Grid.Row="4" Grid.Column="0"
                         Content="Contact : " VerticalAlignment="Center"/>
-                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding CurrentProduit.Description}"
+                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding CurrentClient.ContactInfo}"
                             VerticalAlignment="Center" Margin="6"/>
 
 
@@ -136,10 +130,10 @@
                         Content="Supprimer client"/>
 
 
-                <!-- ******************* Contact *************************************  -->
+                <!-- ******************* Image *************************************  -->
                 <Image Grid.Row="6" Grid.ColumnSpan="2" 
                        MaxWidth="500" MaxHeight="200"
-                       Source="{Binding CurrentProduit.PicturePath}"/>
+                       Source="{Binding CurrentClient.PicturePath}"/>
 
 
 
