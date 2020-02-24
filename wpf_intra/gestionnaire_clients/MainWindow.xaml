@@ -43,7 +43,7 @@
                 </Grid.RowDefinitions>
                 
                 <StackPanel Grid.Row="0" Orientation="Horizontal">
-                    <TextBlock  Text="Listes des Client"/>
+                    <TextBlock  Text="Listes des Clients "/>
                     <Button Margin="10,0,0,0" Height="20" Width="90" 
                             VerticalAlignment="Top" Content="Nouveau client"
                             Click="NewClient_Click"/>
@@ -69,6 +69,7 @@
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
                     <RowDefinition Height="6*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -79,61 +80,65 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- ******************* Nom / prenom *************************************  -->
-                <Label Grid.Row="0" Grid.Column="0"
+                <Label Grid.Row="1" Grid.Column="0"
                         Content="Prenom : " VerticalAlignment="Center"/>
-                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding CurrentClient.Name}"
-                            VerticalAlignment="Center" Margin="6"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding CurrentClient.Name}"
+                         VerticalAlignment="Center" HorizontalAlignment="Left"
+                         Margin="6" Width="120"/>
 
-                <Label Grid.Row="0" Grid.Column="2"
+                <Label Grid.Row="1" Grid.Column="2"
                         Content="Nom : " VerticalAlignment="Center"/>
-                <TextBox Grid.Row="0" Grid.Column="3" Text="{Binding CurrentClient.LastName}"
-                            VerticalAlignment="Center" Margin="6"/>
+                <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding CurrentClient.LastName}"
+                         VerticalAlignment="Center" HorizontalAlignment="Left"
+                         Margin="6" Width="120"/>
 
                 
                 
                 <!-- ******************* Adresse *************************************  -->
-                <Label Grid.Row="1" Grid.Column="0"
+                <Label Grid.Row="2" Grid.Column="0"
                         Content="Adresse : " VerticalAlignment="Center"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding CurrentClient.Address}"
+                <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding CurrentClient.Address}"
                             VerticalAlignment="Center" Margin="6"/>
 
 
                 <!-- ******************* Ville / province *************************************  -->
-                <Label Grid.Row="2" Grid.Column="0"
+                <Label Grid.Row="3" Grid.Column="0"
                         Content="Ville : " VerticalAlignment="Center"/>
-                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding CurrentClient.City}"
+                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding CurrentClient.City}"
                             VerticalAlignment="Center" Margin="6"/>
 
-                <Label Grid.Row="2" Grid.Column="2"
+                <Label Grid.Row="3" Grid.Column="2"
                         Content="Province : " VerticalAlignment="Center"/>
-                <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding CurrentClient.Province}"
+                <TextBox Grid.Row="3" Grid.Column="3" Text="{Binding CurrentClient.Province}"
                          VerticalAlignment="Center" HorizontalAlignment="Left"
                          Margin="6" Width="40"/>
 
 
                 <!-- ******************* Code postale *************************************  -->
-                <Label Grid.Row="3" Grid.Column="0"
+                <Label Grid.Row="4" Grid.Column="0"
                         Content="Code postal : " VerticalAlignment="Center"/>
-                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding CurrentClient.PostalCode}"
-                            VerticalAlignment="Center" Margin="6"/>
+                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding CurrentClient.PostalCode}"
+                           VerticalAlignment="Center" HorizontalAlignment="Left"
+                         Margin="6" Width="120"/>
 
 
 
                 <!-- ******************* Contact *************************************  -->
-                <Label Grid.Row="4" Grid.Column="0"
+                <Label Grid.Row="5" Grid.Column="0" 
                         Content="Contact : " VerticalAlignment="Center"/>
-                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding CurrentClient.ContactInfo}"
+                <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2"
+                         Text="{Binding CurrentClient.ContactInfo}"
                             VerticalAlignment="Center" Margin="6"/>
 
 
                 <!-- ******************* Btn Suprimer *************************************  -->
-                <Button Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2"
+                <Button Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2"
                         Width="250" Height="20"
                         Content="Supprimer client" Click="Del_Client"/>
 
 
                 <!-- ******************* Image *************************************  -->
-                <Image Grid.Row="6" Grid.ColumnSpan="2" 
+                <Image Grid.Row="7" Grid.ColumnSpan="2" 
                        MaxWidth="500" MaxHeight="200"
                        Source="{Binding CurrentClient.PicturePath}"/>
 
