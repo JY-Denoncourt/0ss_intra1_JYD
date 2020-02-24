@@ -12,9 +12,11 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Fichier">
-                <MenuItem Header="New">
-                    <MenuItem Header="Produit" Click="NewClient_Click"/>
-                </MenuItem>
+                <MenuItem Header="Ouvrir..."/>
+                <MenuItem Header="Sauvegarder"/>
+                <MenuItem Header="Fermer"/>
+                <MenuItem Header="Nouveau Client" Click="NewClient_Click"/>
+                <MenuItem Header="Quitter"/>
             </MenuItem>
             <MenuItem Header="Edition" />
             <MenuItem Header="Affichage" />
@@ -127,7 +129,7 @@
                 <!-- ******************* Btn Suprimer *************************************  -->
                 <Button Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2"
                         Width="250" Height="20"
-                        Content="Supprimer client"/>
+                        Content="Supprimer client" Click="Del_Client"/>
 
 
                 <!-- ******************* Image *************************************  -->

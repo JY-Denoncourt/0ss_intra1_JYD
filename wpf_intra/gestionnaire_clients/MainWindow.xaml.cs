@@ -82,17 +82,6 @@ namespace gestionnaire_clients
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ListView lv = (ListView)sender;
@@ -100,22 +89,29 @@ namespace gestionnaire_clients
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
         private void NewClient_Click(object sender, RoutedEventArgs e)
         {
-
+            CurrentClient = new Customer() { Name = "Empty", LastName = "Empty", Address = "Empty", City = "Empty", Province = "--", PostalCode = "--- ---", PicturePath = "images/user.png", ContactInfo = "empty" };
+            OC_Client1.Add(CurrentClient);
         }
 
-       
+
+        private void Del_Client(object sender, RoutedEventArgs e)
+        {
+
+            int index = OC_Client1.IndexOf(CurrentClient);
+            OC_Client1.Remove(CurrentClient);
+            
+            if (index == 0) index = 0;
+            else index -= 1;
+
+            if (OC_Client1.Count == 0)
+            {
+                CurrentClient = new Customer() { Name = "Empty", LastName = "Empty", Address = "Empty", City = "Empty", Province = "--", PostalCode = "--- ---", PicturePath = "images/user.png", ContactInfo = "empty" };
+                OC_Client1.Add(CurrentClient);
+            }
+            else
+                CurrentClient = OC_Client1[index];
+        }
     }
 }
